@@ -1,9 +1,13 @@
 import React from "react";
 
 export const Transaction = ({ transaction }) => {
+  const sign = transaction.amount < 0 ? "-" : "+";
   return (
     <li className="minus">
-      {transaction.text} <span>-&#8377;{transaction.amount}</span>
+      {transaction.text}{" "}
+      <span>
+        {sign}&#8377;{Math.abs(transaction.amount)}
+      </span>
       <button className="delete-btn">x</button>
     </li>
   );
