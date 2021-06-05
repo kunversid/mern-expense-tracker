@@ -1,4 +1,5 @@
-import React, { useContext, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
+import AppReducer from "./AppReducer";
 
 //Initial State
 const initialState = {
@@ -10,10 +11,10 @@ const initialState = {
   ],
 };
 
-//Create Context
-export const GlobalContext = useContext(initialState);
+// Create context
+export const GlobalContext = createContext(initialState);
 
-//Provider component
+// Provider component
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
