@@ -1,4 +1,13 @@
 const express = require("express");
 const router = express.Router();
-router.get("/", (req, res) => res.send("Hello World"));
+const {
+  getTransactions,
+  addTransaction,
+  deleteTransaction,
+} = require("../controllers/transactions");
+
+router.route("/").get(getTransactions).post(addTransaction);
+
+router.route("/:id").delete(deleteTransaction);
+
 module.exports = router;
